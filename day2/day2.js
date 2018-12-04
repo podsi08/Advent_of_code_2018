@@ -24,3 +24,27 @@ dataArray.forEach(element => {
 
 console.log(threeLettersCodes * twoLettersCodes)
     
+// part2
+dataArray.forEach((element1, index) => {
+    for (let j = index + 1; j < dataArray.length; j++) {
+        let element2 = dataArray[j];
+        let differentLetters = 0;
+        for (let k = 0; k < element2.length; k++) {
+            if (element2[k] !== element1[k]) {
+                differentLetters += 1;
+            }
+            if (differentLetters > 1) {
+                break;
+            }
+        }
+        if (differentLetters === 1) {
+            let result2 = '';
+            for (let letterIndex1 = 0; letterIndex1 < element1.length; letterIndex1++) {
+                if (element1[letterIndex1] === element2[letterIndex1]) {
+                    result2 += element1[letterIndex1];
+                }
+            }
+            console.log(result2);
+        }
+    }
+})
